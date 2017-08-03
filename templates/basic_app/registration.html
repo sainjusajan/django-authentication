@@ -1,0 +1,33 @@
+{% extends "basic_app/base.html" %} {% load staticfiles %} {% block body_block %}
+<section id="registration">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    {% if registered %}
+                    <h1>Thank your for registration</h1>
+
+                    {% else %}
+                    <h1>REgister here !</h1>
+                    <h3>Fill out the form for registration</h3>
+
+
+                    <form method="POST" role="form" enctype="multipart/form-data">
+                        {% csrf_token %} {{ user_form.as_p}} {{ profile_form.as_p}}
+
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+
+
+
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
